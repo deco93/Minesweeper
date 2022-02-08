@@ -1,0 +1,32 @@
+Readme.code
+==========================================================================
+
+1. I chose the command pattern.
+	1. I Chose it because it seemed really useful to neatly implement a flag markup and flag clear fucntionality for mines in my gameplay.
+	2. Snippet using command patter to flag or unflag a mine on right click
+	You can see this at from line 55 in Tile.cpp
+		else if (KeyPressed == EKeys::RightMouseButton)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("RMB Tile Clicked (%d,%d)"), X, Y);
+			AMinesweeperGameModeBase* MinesweeperGameModeBase = (AMinesweeperGameModeBase*)GetWorld()->GetAuthGameMode();
+			if (!Marked && !Clicked)
+				execute(X, Y);
+			else if(Marked && !Clicked)
+				undo(X, Y);
+		}
+
+2. I didnt use the observer pattern to implement a full Audio System since I had only one audio prompt to be played in my gameplay.
+	1. Instead I used a simple call to a SoundCue from my GameMode class.
+	which you can see at line 87 of MinesweeperGameModeBase.cpp
+	void AMinesweeperGameModeBase::PlayBlastSound()
+	{
+		UGameplayStatics::PlaySound2D(GetWorld(),BlastSound);
+	}
+	2. The pros of using the observer pattern for implementing an audio system would be I would be able to have all my Audioprompts at GameMode and the rest of the systems could simply broadcast a trigger notification and then not care about whether someone entertained the request or not. So the code would be more losely coupled. Whereas right not if something goes wrong while playing a sound in the GameMode method proably the calling class will get effected.
+
+3. I had the following learnings:-
+	1. Since I only used like one pattern and that too sparringly it seems that in a small scale project like this that can still work and lead to efficient code from the start without any performance issues.
+	2. I could ceratinly use observer pattern as well to implement a better sound system so I can support sounds being played from multiple systems without making the code tightly coupled.
+
+	Cons
+	1. I could add more UI elements like menus, animations and more sound effects.
