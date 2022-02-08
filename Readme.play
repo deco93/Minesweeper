@@ -1,0 +1,18 @@
+Readme.play
+================================================================================
+
+Directions to play
+
+1. The game starts with a grid of tiles of 10x10 dimension
+2. The players can then start clicking on tiles which gradually reveals what lies beneath the tiles.
+3. If you reveal a plain tile or a number tile you are safe. But, if you reveal a mine its game over!
+4. When one reveals a number tile whatever be the number underneath the tile that many number of mines are around the 8 tile spots surrounding the location just revealed by the player.
+5. The player loses when you reveal 1 of the 10 tiles on a grid of 100 tiles.
+6. The player wins when you have revealed all the tiles except the ones which have the 10 mines underneath them.
+7. When the player reveals a mine all the mines scattered on the grid are exposed to help player better understand what those numbers mean(especially for new minesweeper players).
+8. You can reset the whole game to make a fresh attempt at anytime during gameplay by clicking on the smiley UI button.
+
+
+CHEATS
+---------------------------
+There are no cheat code !! Its a minefield out there!
